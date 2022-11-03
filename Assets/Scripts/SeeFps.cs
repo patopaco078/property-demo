@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SeeFps : MonoBehaviour
 {
     public float updateInterval = 0.5f; //How often should the number update
-
+    [SerializeField] TextMeshPro fpsTExt;
     float accum = 0.0f;
     int frames = 0;
     float timeleft;
@@ -38,11 +39,12 @@ public class SeeFps : MonoBehaviour
             accum = 0.0f;
             frames = 0;
         }
+        fpsTExt.text = fps.ToString();
     }
 
     void OnGUI()
     {
         //Display the fps and round to 2 decimals
-        GUI.Label(new Rect(5, 5, 100, 25), fps.ToString("F2") + "FPS", textStyle);
+        GUI.Label(new Rect(200, 200, 100, 25), fps.ToString("F2") + "FPS", textStyle);
     }
 }

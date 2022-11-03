@@ -187,6 +187,16 @@
       },
       "url": "https://registry.npmjs.org"
     },
+    "io.extendreality.tilia.indicators.spatialtargets.unity": {
+      "version": "2.0.11",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "io.extendreality.zinnia.unity": "2.3.0",
+        "io.extendreality.tilia.indicators.objectpointers.unity": "2.1.7"
+      },
+      "url": "https://registry.npmjs.org"
+    },
     "io.extendreality.tilia.input.combinedactions.unity": {
       "version": "2.0.4",
       "depth": 0,
@@ -243,6 +253,16 @@
         "io.extendreality.tilia.utilities.shaders.unity": "1.3.1",
         "io.extendreality.tilia.mutators.objectfollower.unity": "2.0.4",
         "io.extendreality.tilia.interactions.interactables.unity": "2.7.0"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "io.extendreality.tilia.interactions.spatialbuttons.unity": {
+      "version": "2.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "io.extendreality.tilia.indicators.spatialtargets.unity": "2.0.11",
+        "com.unity.textmeshpro": "1.4.1"
       },
       "url": "https://registry.npmjs.org"
     },
