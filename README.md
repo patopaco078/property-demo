@@ -1,6 +1,6 @@
 # trabajo1_VRTK
 
-Gameplay: https://youtu.be/qhNNes-yStc
+Gameplay: 
 
 Hecho por: Santiago Leon Camargo Usuga.
 
