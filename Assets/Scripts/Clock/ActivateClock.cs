@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 [RequireComponent(typeof(BoxCollider))]
 
 public class ActivateClock : MonoBehaviour
 {
-    [SerializeField] GameObject[] gameObjectsActived;
+    [Header("Objets")]
+    [SerializeField] GameObject Laser;
+    [SerializeField] GameObject UIClock;
+
+    [Header("Variables")]
+    [SerializeField] float Transition;
 
     [Header("Events")]
     [SerializeField] UnityEvent EventsEnter;
@@ -15,10 +21,9 @@ public class ActivateClock : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < gameObjectsActived.Length; i++)
-        {
-            gameObjectsActived[i].SetActive(false);
-        }
+        UIClock.GetComponent<Transform>().DOScaleY(0, 0);
+        Laser.SetActive(false);
+        UIClock.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,10 +31,7 @@ public class ActivateClock : MonoBehaviour
         if(other.tag == "PlayerWatch")
         {
             EventsEnter.Invoke();
-            for (int i = 0; i < gameObjectsActived.Length; i++)
-            {
-                gameObjectsActived[i].SetActive(true);
-            }
+            openUIClock();
         }
     }
 
@@ -39,11 +41,28 @@ public class ActivateClock : MonoBehaviour
             if (other.tag == "PlayerWatch")
             {
                 EventsExit.Invoke();
-                for (int i = 0; i < gameObjectsActived.Length; i++)
-                {
-                    gameObjectsActived[i].SetActive(false);
-                }
+                closeUIClock();
             }
         }
+    }
+
+    private void openUIClock()
+    {
+        Laser.SetActive(true);
+        UIClock.SetActive(true);
+        UIClock.GetComponent<Transform>().DOScaleY(1, Transition);
+    }
+
+    private void closeUIClock()
+    {
+        Laser.SetActive(false);
+        UIClock.GetComponent<Transform>().DOScaleY(0, Transition);
+        StartCoroutine(disaperUIClock());
+    }
+
+    IEnumerator disaperUIClock()
+    {
+        yield return new WaitForSeconds(Transition);
+        UIClock.SetActive(false);
     }
 }
