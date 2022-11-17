@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerWatch
+  - Flat
+  - Grass
+  - Stone
+  - Wood
   layers:
   - Default
   - TransparentFX
